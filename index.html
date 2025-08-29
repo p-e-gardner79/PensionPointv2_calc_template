@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pension Payment Calculator</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <div class="demo-controls">
+        <label for="login-toggle">Toggle Logged-In State:</label>
+        <input type="checkbox" id="login-toggle">
+    </div>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="/" class="header-logo" aria-label="Pension Portal Home">
+                <!-- Custom Styled SVG Logo -->
+                <svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="200" height="50" fill="transparent"/>
+                    <circle cx="25" cy="25" r="18" fill="#183850"/>
+                    <circle cx="30" cy="25" r="10" fill="#54bbab"/>
+                    <circle cx="20" cy="25" r="4" fill="#EA8F3C"/>
+                    <text x="60" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#183850">PENSION</text>
+                    <text x="145" y="32" font-family="Arial, sans-serif" font-size="20" fill="#686a6c">PORTAL</text>
+                </svg>
+            </a>
+
+            <nav class="main-nav" id="main-navigation">
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    
+                    <li class="mega-menu-item">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">Pensions Hub <span class="mdi mdi-chevron-down"></span></a>
+                        <div class="mega-menu">
+                            <div class="container mega-menu-inner">
+                                <div class="mega-menu-promo">
+                                    <h3><span class="mdi mdi-compass-outline"></span>Pensions Hub</h3>
+                                    <p>Find information and guides relevant to your pension journey.</p>
+                                </div>
+                                <div class="mega-menu-links-grid">
+                                    <ul>
+                                        <li><a href="#"><span class="mdi mdi-account-plus-outline"></span>I'm new to my pension scheme</a></li>
+                                        <li><a href="#"><span class="mdi mdi-file-document-edit-outline"></span>I want to make some pension changes</a></li>
+                                        <li><a href="#"><span class="mdi mdi-account-switch-outline"></span>I have a change in circumstances</a></li>
+                                        <li><a href="#"><span class="mdi mdi-trending-up"></span>I'm planning my retirement</a></li>
+                                        <li><a href="#"><span class="mdi mdi-human-greeting-variant"></span>I'm a retired member</a></li>
+                                        <li><a href="#"><span class="mdi mdi-emoticon-sad-outline"></span>I want to report a death</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="mega-menu-item role-conditional" data-roles="active,deferred,pensioner" style="display: none;">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">My Documents <span class="mdi mdi-chevron-down"></span></a>
+                        <div class="mega-menu">
+                            <div class="container mega-menu-inner">
+                                <div class="mega-menu-promo">
+                                    <h3><span class="mdi mdi-file-document-multiple-outline"></span>My Documents</h3>
+                                    <p>Access your statements, letters, and important forms.</p>
+                                </div>
+                                <div class="mega-menu-links-grid">
+                                    <ul>
+                                        <li><a href="#"><span class="mdi mdi-file-chart-outline"></span>Annual Statements</a></li>
+                                        <li><a href="#"><span class="mdi mdi-email-outline"></span>Correspondence</a></li>
+                                        <li><a href="#"><span class="mdi mdi-account-heart-outline"></span>Nomination Forms</a></li>
+                                        <li><a href="#"><span class="mdi mdi-book-open-page-variant-outline"></span>Scheme Guides</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mega-menu-item role-conditional" data-roles="active,deferred,pensioner" style="display: none;">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">Calculators <span class="mdi mdi-chevron-down"></span></a>
+                        <div class="mega-menu">
+                            <div class="container mega-menu-inner">
+                                <div class="mega-menu-promo">
+                                    <h3><span class="mdi mdi-calculator-variant-outline"></span>Calculators</h3>
+                                    <p>Estimate your pension benefits with our range of planning tools.</p>
+                                </div>
+                                <div class="mega-menu-links-grid">
+                                    <ul>
+                                        <li><a href="#"><span class="mdi mdi-cash-multiple"></span>Pension Payment Calculator</a></li>
+                                        <li><a href="#"><span class="mdi mdi-cash-100"></span>Lump Sum Calculator</a></li>
+                                        <li><a href="#"><span class="mdi mdi-run-fast"></span>Early Retirement Calculator</a></li>
+                                        <li><a href="#"><span class="mdi mdi-account-remove-outline"></span>Redundancy Calculator</a></li>
+                                        <li><a href="#"><span class="mdi mdi-hospital-box-outline"></span>Ill Health Calculator</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mega-menu-item role-conditional" data-roles="active,deferred,pensioner" style="display: none;">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">Personal Info <span class="mdi mdi-chevron-down"></span></a>
+                        <div class="mega-menu">
+                            <div class="container mega-menu-inner">
+                                <div class="mega-menu-promo">
+                                    <h3><span class="mdi mdi-account-details-outline"></span>Personal Info</h3>
+                                    <p>Keep your personal information and preferences up to date.</p>
+                                </div>
+                                <div class="mega-menu-links-grid">
+                                    <ul>
+                                        <li><a href="#"><span class="mdi mdi-email-check-outline"></span>Update contact preferences</a></li>
+                                        <li><a href="#"><span class="mdi mdi-bank-outline"></span>Update bank details</a></li>
+                                        <li><a href="#"><span class="mdi mdi-phone-outline"></span>Update telephone number</a></li>
+                                        <li><a href="#"><span class="mdi mdi-home-map-marker"></span>Update home address</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="mega-menu-item">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">Help & Support<span class="mdi mdi-chevron-down"></span></a>
+                        <div class="mega-menu">
+                            <div class="container mega-menu-inner">
+                                <div class="mega-menu-promo">
+                                    <h3><span class="mdi mdi-compass-outline"></span>Help & Support</h3>
+                                    <p>Find the answers and resources you need.</p>
+                                </div>
+                                <div class="mega-menu-links-grid">
+                                    <ul>
+                                        <li><a href="#"><span class="mdi mdi-phone-outline"></span>Contact Us</a></li>
+                                        <li><a href="#"><span class="mdi mdi-help-circle-outline"></span>Frequently asked questions</a></li>
+                                        <li><a href="#"><span class="mdi mdi-book-open-page-variant-outline"></span>Guides and resources</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="role-conditional" data-roles="" style="display: block;">
+                    <a href="/login" class="button button-primary">Log In</a>
+                </div>
+
+                <div class="header-actions-logged-in role-conditional" data-roles="active,deferred,pensioner" style="display: none;">
+                    <button class="notification-button" aria-label="View 3 unread notifications">
+                        <span class="mdi mdi-bell"></span>
+                        <span class="notification-count">3</span>
+                    </button>
+
+                    <div class="user-menu">
+                        <button class="user-menu-toggle" aria-haspopup="true" aria-expanded="false">
+                            Hi, John <span class="mdi mdi-chevron-down"></span>
+                        </button>
+                        <div class="user-menu-dropdown">
+                            <p class="last-login-info">Last logged in: 22/08/2025 at 10:42</p>
+                            <ul>
+                                <li><a href="/my-details">My Details</a></li>
+                                <li><a href="/logout">Log Off</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="mobile-nav-toggle" aria-controls="main-navigation" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li><a href="#">Home</a></li>
+                <li class="separator">/</li>
+                <li><a href="#">Calculators</a></li>
+                <li class="separator">/</li>
+                <li class="current-page" aria-current="page">Pension Payment Calculator</li>
+            </ol>
+        </div>
+    </nav>
+
+    <header class="hero-two-column">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Pension Payment Calculator</h1>
+                <p>Use this tool to get an estimate of your potential pension payments. See how different choices could affect your income in retirement and plan for the future with confidence.</p>
+            </div>
+            <div class="hero-icon-container">
+                <img src="./assets/images/443x576-member-page.png" alt="An illustration of various pension scheme members from different professions.">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content-area">
+        <div class="container">
+            <div class="calculator-column">
+                <div class="calculator-widget">
+                    <span class="mdi mdi-cogs"></span>
+                    <h3>Pension Payment Calculator Widget</h3>
+                    <p>This area will contain the interactive calculator widget provided by the administration system.</p>
+                </div>
+            </div>
+
+            <aside class="right-sidebar-column">
+                <div class="sidebar-card">
+                    <h3>All Calculators</h3>
+                    <nav class="sidebar-list">
+                        <a href="#" class="active" aria-current="page">
+                            <span class="mdi mdi-cash-multiple"></span> Pension Payment
+                        </a>
+                        <a href="#">
+                             <span class="mdi mdi-cash-100"></span> Lump Sum
+                        </a>
+                        <a href="#">
+                            <span class="mdi mdi-run-fast"></span> Early Retirement
+                        </a>
+                        <a href="#">
+                            <span class="mdi mdi-account-remove-outline"></span> Redundancy
+                        </a>
+                        <a href="#">
+                            <span class="mdi mdi-hospital-box-outline"></span> Ill Health
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 style="text-align: center;">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How is my pension payment calculated?
+                        <span class="plus-icon mdi mdi-plus"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Your pension payment is calculated based on several factors, including your years of service, your final salary, and the scheme's accrual rate. This calculator provides an estimate based on the data you input.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        Is this calculation a guaranteed amount?
+                        <span class="plus-icon mdi mdi-plus"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>No, this is an illustrative estimate only and is not a guarantee of the benefits you will receive. Your official pension statement will provide a more precise calculation. For a full breakdown, please check 'My documents'.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I take a lump sum as well as a regular payment?
+                        <span class="plus-icon mdi mdi-plus"></span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Most pension schemes allow you to take a portion of your pension pot as a tax-free lump sum. Please use the 'Lump Sum Calculator' to see how this might affect your regular pension payments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script src="./scripts.js"></script>
+
+</body>
+</html>
